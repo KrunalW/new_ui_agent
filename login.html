@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>Agent Panel </title>
+  <link rel='icon' type='image/x-icon' href='../assets/img/favicon.png'>
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="assets/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-select/css/select.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Custome style -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/login.css">
+  <style>
+    table.dataTable tbody th,
+    table.dataTable tbody td,
+    .table td,
+    .table th {
+      border-top: 1px solid #fafafa;
+      word-break: break-all;
+    }
+
+    table.dataTable thead th,
+    table.dataTable thead td,
+    .table>thead>tr>th,
+    table.dataTable.no-footer,
+    .table {
+      border-bottom: 1px solid #fafafa;
+      background: none;
+    }
+
+    .table>thead>tr>th {
+      color: #FFF;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+      background: #E6E6E6;
+      border: none;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+      background: #0084FF;
+      border-color: #06559f;
+    }
+
+    table.dataTable.no-footer thead,
+    .table thead,
+    table.dataTable.no-footer thead tr {
+      background: #1d4487;
+    }
+
+    table.dataTable>thead>tr>th:not(.sorting_disabled) {
+      color: #FFF;
+    }
+
+    table.dataTable.no-footer {
+      box-shadow: none;
+      border-radius: 0;
+      border: 0;
+    }
+
+    .table-bordered th {
+      border: 0;
+      color: #FFF;
+    }
+
+    .table-bordered td {
+      border: 0;
+      color: #747474;
+    }
+
+    .table-striped tbody tr:hover td {
+      color: #ffffff;
+    }
+
+    .table-striped tbody .empty {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body class="d-flex flex-column h-100">
+
+  <!-- loader  -->
+  <div id="LoadingBox">
+    <p>Loading...</p>
+    <div class="logo-wrap tran">
+      <img class="edas-logo img-responsive" src="assets/img/vaani-logo.png" alt="logo">
+      <svg class="tran" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        style="background: rgba(255, 255, 255, 0); display: block;" width="100%" height="200px" viewBox="0 0 100 100"
+        preserveAspectRatio="xMidYMid">
+        <circle cx="50" cy="50" r="25" stroke-width="3" stroke="#fff"
+          stroke-dasharray="39.269908169872416 39.269908169872416" fill="none" stroke-linecap="round">
+          <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="0.6666666666666666s"
+            keyTimes="0;1" values="0 50 50;360 50 50"></animateTransform>
+        </circle>
+      </svg>
+    </div>
+  </div>
+  <!-- loader  -->
+
+  <main role="main">
+    <div class="container-fluid">
+      <div class="row align-items-center justify-content-center form-box">
+        <div class="col-sm-8 col-xl-8 form-container">
+          <div class="row align-items-center">
+            <div class="col-sm-4 col-xl-4">
+              <img class="logo" src="assets/img/vaani-logo.png" alt="logo">
+              <form id="login-form" action="/edas_vaani_dev/backend/web/index.php/site/login" method="post"
+                autocomplete="off" onsubmit="$('#LoadingBox').show(); ">
+                <input type="hidden" name="_csrf-backend"
+                  value="xcHc3kBVU7ByZNESFPW74vO0HA-E6qTt_tLcqSwvZj6nh4mJMXga2iFcuEIixdGhstpkOv6i09-4seyfbWA2DQ==">
+                <div class="form-group field-loginform-username required">
+                  <label class="form-label" for="loginform-username">User Id</label><input type="text"
+                    id="loginform-username" class="form-control" name="LoginForm[username]" autofocus=""
+                    placeholder="User ID" required="" aria-required="true">
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="form-group field-loginform-password required">
+                  <label class="form-label" for="loginform-password">Password</label><input type="password"
+                    id="loginform-password" class="form-control" name="LoginForm[password]" value=""
+                    placeholder="Password" required="" aria-required="true">
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary" name="login-button">Login</button>
+                </div>
+
+              </form>
+            </div>
+            <div class="col-sm-8 col-xl-8">
+              <img src="assets/img/vaanicall.png" alt="vaani call">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+
+</html>

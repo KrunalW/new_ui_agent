@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>Admin Panel </title>
+  <link rel='icon' type='image/x-icon' href='assets/img/favicon.png'>
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="assets/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-select/css/select.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Custome style -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/light-mode.css">
+  <style>
+    table.dataTable tbody th,
+    table.dataTable tbody td,
+    .table td,
+    .table th {
+      border-top: 1px solid #fafafa;
+      word-break: break-all;
+    }
+
+    table.dataTable thead th,
+    table.dataTable thead td,
+    .table>thead>tr>th,
+    table.dataTable.no-footer,
+    .table {
+      border-bottom: 1px solid #fafafa;
+      background: none;
+    }
+
+    .table>thead>tr>th {
+      color: #FFF;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+      background: #E6E6E6;
+      border: none;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+      background: #0084FF;
+      border-color: #06559f;
+    }
+
+    table.dataTable.no-footer thead,
+    .table thead,
+    table.dataTable.no-footer thead tr {
+      background: #1d4487;
+    }
+
+    table.dataTable>thead>tr>th:not(.sorting_disabled) {
+      color: #FFF;
+    }
+
+    table.dataTable.no-footer {
+      box-shadow: none;
+      border-radius: 0;
+      border: 0;
+    }
+
+    .table-bordered th {
+      border: 0;
+      color: #FFF;
+    }
+
+    .table-bordered td {
+      border: 0;
+      color: #747474;
+    }
+
+    .table-striped tbody tr:hover td {
+      color: #ffffff;
+    }
+
+    .table-striped tbody .empty {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body class="sidebar-mini">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <!-- Brand Logo -->
+        <a href="#" class="brand-link">
+          <img src="./assets/img/vaani-logo.png" alt="Vaani Logo" class="brand-image">
+          <img src="./assets/img/vaani-logo.png" alt="Vaani Logo" class="brand-logo elevation-3" style="opacity: .8">
+          <span class="brand-text font-weight-light">&nbsp;</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <div class="user-panel d-flex">
+          <!-- <div class="image">
+            <img src="/edas_vaani_dev/backend/web/images/vaani-initial-logo.png" class="elevation-2" alt="User Image">
+          </div> -->
+          <div class="info">
+            <div>Welcome</div> <span>Super Admin</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-- Right navbar links -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav menu-list m-auto">
+        <li class="nav-item d-none">
+          <!-- <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a> -->
+          <a class="nav-link barIcon" href="#" role="button">
+            <!-- <i class="fas fa-bars"></i> -->
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </a>
+        </li>
+
+        <!-- MENU LIST -->
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Configuration </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/lead/index">Batches</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/break/index">Breaks</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/client/index">Client License</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/crm/index">CRM</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/disposition/index">Disposition</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/dni/index">DNI List</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/menu/index">Menu Master</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/operator/index">Operators</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/pbx/configuration">PBX</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/qms/index">QMS</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/call-times/index">Schedules</a> <a
+              class="dropdown-item ">Telephony</a> <a class="dropdown-item "
+              href="/edas_vaani_dev/backend/web/index.php/kp/index">Knowledge Portal</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Integration </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item ">Email</a> <a class="dropdown-item ">Facebook</a> <a
+              class="dropdown-item ">WhatsApp</a> <a class="dropdown-item ">Instagram</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Administer </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item ">Admin Termination</a> <a class="dropdown-item ">Agent Termination</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/campaign/index">Campaign List</a> <a
+              class="dropdown-item ">Pending Feedback</a> <a class="dropdown-item "
+              href="/edas_vaani_dev/backend/web/index.php/report/recordings">Evaluation</a> <a class="dropdown-item "
+              href="/edas_vaani_dev/backend/web/index.php/user/index">Users</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Monitoring </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item ">Call Barge</a> <a class="dropdown-item ">Lead Performance</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/report/monitoring">Live Monitoring</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Reports </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/report/acd-report">ACD Report</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/report/agent-performance-report">APR
+              Report</a> <a class="dropdown-item "
+              href="/edas_vaani_dev/backend/web/index.php/report/call-register-report">Call Register</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/report/crm-history-report">CRM
+              History</a> <a class="dropdown-item ">Email History</a> <a class="dropdown-item ">Intelligent APR</a> <a
+              class="dropdown-item ">Intelligent QMS</a> <a class="dropdown-item "
+              href="/edas_vaani_dev/backend/web/index.php/report/agent-login-report">Login History</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/report/qms-report">QMS Report</a>
+          </div>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav my-2 my-lg-0 mr-3">
+        <li class="nav-item">
+          <span data-toggle="tooltip" data-placement="top" title="Client">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#Modal"><i class="far fa-handshake"></i></a>
+          </span>
+        </li>
+        <li class="p-10 d-none">
+          <span id="real-date-section">Wednesday, November 16, 2022</span>
+          <span id="real-time-section">02:45:04 PM</span>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle profile-icon" href="#" role="button" data-toggle="dropdown"
+            aria-expanded="false">
+            <i class="fas fa-user"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/edas_vaani_dev/backend/web/index.php/site/change-password"
+              title="Change Password"><i class="fas fa-key"></i> Change Password</a> <a class="dropdown-item logout-btn"
+              href="/edas_vaani_dev/backend/web/index.php/site/logout" data-method="POST"><i
+                class="fas fa-power-off"></i> Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- <body class="hold-transition sidebar-mini"> -->
+  <div class="wrapper" id="agent_page">
+  
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="clearfix top-header">
+            <h1 class="float-left">Monitoring</h1>
+            <div class="float-right">
+              <a href="#" class="view-more btn-top">
+                View Details
+                <div class="circle-plus closed">
+                  <div class="circle">
+                    <div class="horizontal"></div>
+                    <div class="vertical"></div>
+                  </div>
+                </div>
+              </a>
+  
+              <a href="#" class="btn-top ml-2" data-toggle="modal" data-target="#exampleModal"><i
+                  class="fas fa-filter"></i>
+                Filters</a>
+              <span class="refresh ml-2">
+                <a href="javascript:void(0)" id="refresh_btn"><i class="fas fa-sync-alt"></i></a>
+                : <span id="counter_value">30</span>
+              </span>
+  
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Choose Report Display Options</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="form-group mt-3">
+                        <select name="campaign_type[]" id="campaign_type" class="form-control">
+                          <?php foreach (EdasCampaign::$campaign_types as $key => $type) { ?>
+                          <option value="<?= $key ?>">
+                            <?= $type ?>
+                          </option>
+                          <?php } ?>
+                        </select>
+                        <label class="form-label" for="">Campaign Type</label>
+                      </div>
+                      <div class="form-group">
+                        <select name="groups[]" id="campaign_list" class="form-control">
+                          <option value="">Campaigns</option>
+                        </select>
+                        <label class="form-label" for="">Campaigns</label>
+                      </div>
+                      <div class="form-group">
+                        <select name="RR" id="refresh_list" class="form-control">
+                          <option value="">Refresh Rate</option>
+                          <option value="5">5 seconds</option>
+                          <option value="10">10 seconds</option>
+                          <option value="20">20 seconds</option>
+                          <option value="30">30 seconds</option>
+                        </select>
+                        <label class="form-label" for="">Refresh Rate</label>
+                      </div>
+                      <div class="mb-3 text-center">
+                        <button class="btn btn-outline-primary" type="button">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard-content">
+  
+        <div class="row campaign-stats">
+          <div class="container-fluid">
+            <div id="viewDetails" class="row">
+              <div class="col-md-3 bordered-right">
+                <div class="campaign-stats-card">
+                  <div class="row">
+                    <div class="col-md-8 pr-0">
+                      <span class="stats-label">Offered</span>
+                    </div>
+                    <div class="col-md-4 text-right">
+                      <span class="font-md font-weight-bold">14</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-md-3 bordered-right">
+                <div class="campaign-stats-card">
+                  <div class="row">
+                    <div class="col-md-8 pr-0">
+                      <span class="stats-label">Answered</span>
+                    </div>
+                    <div class="col-md-4 text-right">
+                      <span class="font-md font-weight-bold">43</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-md-3 bordered-right">
+                <div class="campaign-stats-card">
+                  <div class="row">
+                    <div class="col-md-8 pr-0">
+                      <span class="stats-label">In Queue</span>
+                    </div>
+                    <div class="col-md-4 text-right">
+                      <span class="font-md font-weight-bold">54</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-md-3">
+                <div class="campaign-stats-card">
+                  <div class="row">
+                    <div class="col-md-8 pr-0">
+                      <span class="stats-label">In IVR</span>
+                    </div>
+                    <div class="col-md-4 text-right">
+                      <span class="font-md font-weight-bold">4</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-md-3 bordered-right">
+                <div class="campaign-stats-card">
+                  <div class="row">
+                    <div class="col-md-8 pr-0">
+                      <span class="stats-label">Abandoned</span>
+                    </div>
+                    <div class="col-md-4 text-right">
+                      <span class="font-md font-weight-bold">4</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-md-3 bordered-right">
+                <div class="campaign-stats-card">
+                  <div class="row">
+                    <div class="col-md-8 pr-0">
+                      <span class="stats-label">Average wait</span>
+                    </div>
+                    <div class="col-md-4 text-right">
+                      <span class="font-md font-weight-bold">4</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-md-3 bordered-right">
+                <div class="campaign-stats-card">
+                  <div class="row">
+                    <div class="col-md-9 pr-0">
+                      <span class="stats-label">Average wait(Dropped Calls)</span>
+                    </div>
+                    <div class="col-md-3 pl-0 text-right">
+                      <span class="font-md font-weight-bold">4W</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-md-3">
+                <div class="campaign-stats-card">
+                  <div class="row">
+                    <div class="col-md-8 pr-0">
+                      <span class="stats-label">Drop Percentage</span>
+                    </div>
+                    <div class="col-md-4 pl-0 text-right">
+                      <span class="font-md font-weight-bold">43</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div style="display: none;">
+                <div class="col-md-4 bordered-right">
+                  <div class="campaign-stats-card">
+                    <div class="row">
+                      <div class="col-md-8 pr-0">
+                        <span class="stats-label">Dialed</span>
+                      </div>
+                      <div class="col-md-4 text-right">
+                        <span class="font-md font-weight-bold">7</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-md-4 bordered-right">
+                  <div class="campaign-stats-card">
+                    <div class="row">
+                      <div class="col-md-8 pr-0">
+                        <span class="stats-label">Connected</span>
+                      </div>
+                      <div class="col-md-4 text-right">
+                        <span class="font-md font-weight-bold">6</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-md-4">
+                  <div class="campaign-stats-card">
+                    <div class="row">
+                      <div class="col-md-8 pr-0">
+                        <span class="stats-label">Abandoned</span>
+                      </div>
+                      <div class="col-md-4 text-right">
+                        <span class="font-md font-weight-bold">6</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-md-4 bordered-right">
+                  <div class="campaign-stats-card">
+                    <div class="row">
+                      <div class="col-md-8 pr-0">
+                        <span class="stats-label">AHT</span>
+                      </div>
+                      <div class="col-md-4 text-right">
+                        <span class="font-md font-weight-bold">4</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-md-4 bordered-right">
+                  <div class="campaign-stats-card">
+                    <div class="row">
+                      <div class="col-md-8 pr-0">
+                        <span class="stats-label">Connect Percentage</span>
+                      </div>
+                      <div class="col-md-4 text-right">
+                        <span class="font-md font-weight-bold">2</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-md-4">
+                  <div class="campaign-stats-card">
+                    <div class="row">
+                      <div class="col-md-8 pr-0">
+                        <span class="stats-label">Abandoned Percentage</span>
+                      </div>
+                      <div class="col-md-4 text-right">
+                        <span class="font-md font-weight-bold">6</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Main content -->
+        <div>
+          <div class="container-fluid">
+            <div class="row justify-content-center">
+              <div class="col-sm-6">
+                <div class="row">
+                  <div class="col-md">
+                    <div class="row outb-m-content active">
+                      <div class="col-8 p-0">
+                        <div class="outb-m-data">
+                          <h4>Total</h4>
+                          <h5>10</h5>
+                        </div>
+                      </div>
+                      <div class="col-4 p-0">
+                        <img src="assets/img/call-total.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md">
+                    <div class="row outb-m-content">
+                      <div class="col-8 p-0">
+                        <div class="outb-m-data">
+                          <h4>Login</h4>
+                          <h5>4</h5>
+                        </div>
+                      </div>
+                      <div class="col-4 p-0">
+                        <img src="assets/img/call-total.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md">
+                    <div class="row outb-m-content">
+                      <div class="col-8 p-0">
+                        <div class="outb-m-data">
+                          <h4>Ready</h4>
+                          <h5>4</h5>
+                        </div>
+                      </div>
+                      <div class="col-4 p-0">
+                        <img src="assets/img/call-ready.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md">
+                    <div class="row outb-m-content">
+                      <div class="col-8 p-0">
+                        <div class="outb-m-data">
+                          <h4>Not Ready</h4>
+                          <h5>2</h5>
+                        </div>
+                      </div>
+                      <div class="col-4 p-0">
+                        <img src="assets/img/call-not-ready.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+  
+        <!-- /.content -->
+  
+        <div class="note_section text-right mt-2">
+          <span class="legend-label monitor_color"><span class="circle-badge"></span> Monitoring</span>
+          <span class="legend-label whisper_color"><span class="circle-badge"></span> Whispering</span>
+          <span class="legend-label barge_color"><span class="circle-badge"></span> Barge-In</span>
+        </div>
+        <div class="outbound-list">
+          <div id="datatables_w0_wrapper" class="dataTables_wrapper no-footer">
+            <div id="datatables_w0_filter" class="dataTables_filter">
+              <label>Search:<input type="search" class="" placeholder="" aria-controls="datatables_w0"></label>
+            </div>
+            <table id="datatables_w0" class="table table-striped dataTable no-footer" width="100%" cellspacing="0"
+              aria-describedby="datatables_w0_info" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th class="sorting" tabindex="0" aria-controls="datatables_w0" rowspan="1" colspan="1"
+                    aria-label="Campaign Name: activate to sort column ascending" style="width: 106px;">
+                    Employee ID</th>
+                  <th class="sorting" tabindex="0" aria-controls="datatables_w0" rowspan="1" colspan="1"
+                    aria-label="Type: activate to sort column ascending" style="width: 113px;">User Name </th>
+                  <th class="sorting" tabindex="0" aria-controls="datatables_w0" rowspan="1" colspan="1"
+                    aria-label="Client: activate to sort column ascending" style="width: 114px;">Current Status</th>
+                  <th class="sorting" tabindex="0" aria-controls="datatables_w0" rowspan="1" colspan="1"
+                    aria-label="Status: activate to sort column ascending" style="width: 119px;">Duration</th>
+                  <th class="sorting" tabindex="0" aria-controls="datatables_w0" rowspan="1" colspan="1"
+                    aria-label="Created Date: activate to sort column ascending" style="width: 248px;">Bucket</th>
+                    <th class="sorting" tabindex="0" aria-controls="datatables_w0" rowspan="1" colspan="1"
+                    aria-label="Created Date: activate to sort column ascending" style="width: 108px;">Case Assign Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="odd">
+                  <td>123</td>
+                  <td>XYZ</td>
+                  <td>Ready</td>
+                  <td>0:00:00</td>
+                  <td>Assement </td>
+                  <td>1</td>
+                </tr>
+                <tr class="even">
+                  <td>123</td>
+                  <td>XYZ</td>
+                  <td>Ready</td>
+                  <td>0:00:00</td>
+                  <td>Assement </td>
+                  <td>1</td>
+                </tr>
+                <tr class="odd">
+                  <td>123</td>
+                  <td>XYZ</td>
+                  <td>Ready</td>
+                  <td>0:00:00</td>
+                  <td>Assement </td>
+                  <td>1</td>
+                </tr>
+                <tr class="even">
+                  <td>123</td>
+                  <td>XYZ</td>
+                  <td>Ready</td>
+                  <td>0:00:00</td>
+                  <td>Assement </td>
+                  <td>1</td>
+                </tr>
+                <tr class="odd">
+                  <td>123</td>
+                  <td>XYZ</td>
+                  <td>Ready</td>
+                  <td>0:00:00</td>
+                  <td>Assement </td>
+                  <td>1</td>
+                </tr>
+                <tr class="even">
+                  <td>123</td>
+                  <td>XYZ</td>
+                  <td>Ready</td>
+                  <td>0:00:00</td>
+                  <td>Assement </td>
+                  <td>1</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="dataTables_info" id="datatables_w0_info" role="status" aria-live="polite">Showing 1
+              to 1 of 1 entries</div>
+            <div class="dataTables_paginate paging_simple_numbers" id="datatables_w0_paginate">
+              <a class="paginate_button previous disabled" aria-controls="datatables_w0" data-dt-idx="0" tabindex="-1"
+                id="datatables_w0_previous">Previous</a><span><a class="paginate_button current" aria-controls="datatables_w0"
+                  data-dt-idx="1" tabindex="0">1</a></span><a class="paginate_button next disabled"
+                aria-controls="datatables_w0" data-dt-idx="2" tabindex="-1" id="datatables_w0_next">Next</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.content-wrapper -->
+
+
+
+    <!-- jQuery -->
+    <!-- <script src="../plugins/jquery/jquery.min.js"></script> -->
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+      $(".view-more").on("click", function () {
+        $(".circle-plus").toggleClass("opened");
+        $(".campaign-stats").slideToggle();
+      });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>Agent Panel </title>
+  <link rel='icon' type='image/x-icon' href='../assets/img/favicon.png'>
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="assets/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-select/css/select.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Custome style -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/light-mode.css">
+  <link rel="stylesheet" href="assets/css/social-chat_&_email.css">
+  <style>
+   .social-chat-for-all .sidebar.chat-list.full-width{width: 100%;}
+  </style>
+</head>
+
+<body class="sidebar-mini">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <!-- Brand Logo -->
+        <a href="#" class="brand-link">
+          <img src="./assets/img/vaani-logo.png" alt="Vaani Logo" class="brand-image">
+          <img src="./assets/img/vaani-logo.png" alt="Vaani Logo" class="brand-logo elevation-3" style="opacity: .8">
+          <span class="brand-text font-weight-light">&nbsp;</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <div class="user-panel d-flex">
+          <!-- <div class="image">
+            <img src="/edas_vaani_dev/backend/web/images/vaani-initial-logo.png" class="elevation-2" alt="User Image">
+          </div> -->
+          <div class="info">
+            <div>Welcome</div> <span>Super Admin</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-- Right navbar links -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav menu-list m-auto">
+        <li class="nav-item d-none">
+          <!-- <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a> -->
+          <a class="nav-link barIcon" href="#" role="button">
+            <!-- <i class="fas fa-bars"></i> -->
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </a>
+        </li>
+
+        <!-- MENU LIST -->
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Configuration </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/lead/index">Batches</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/break/index">Breaks</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/client/index">Client License</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/crm/index">CRM</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/disposition/index">Disposition</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/dni/index">DNI List</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/menu/index">Menu Master</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/operator/index">Operators</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/pbx/configuration">PBX</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/qms/index">QMS</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/call-times/index">Schedules</a> <a
+              class="dropdown-item ">Telephony</a> <a class="dropdown-item "
+              href="/edas_vaani_dev/backend/web/index.php/kp/index">Knowledge Portal</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Integration </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item ">Email</a> <a class="dropdown-item ">Facebook</a> <a
+              class="dropdown-item ">WhatsApp</a> <a class="dropdown-item ">Instagram</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Administer </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item ">Admin Termination</a> <a class="dropdown-item ">Agent Termination</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/campaign/index">Campaign List</a> <a
+              class="dropdown-item ">Pending Feedback</a> <a class="dropdown-item "
+              href="/edas_vaani_dev/backend/web/index.php/report/recordings">Evaluation</a> <a class="dropdown-item "
+              href="/edas_vaani_dev/backend/web/index.php/user/index">Users</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Monitoring </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item ">Call Barge</a> <a class="dropdown-item ">Lead Performance</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/report/monitoring">Live Monitoring</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Reports </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/report/acd-report">ACD Report</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/report/agent-performance-report">APR
+              Report</a> <a class="dropdown-item "
+              href="/edas_vaani_dev/backend/web/index.php/report/call-register-report">Call Register</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/report/crm-history-report">CRM
+              History</a> <a class="dropdown-item ">Email History</a> <a class="dropdown-item ">Intelligent APR</a> <a
+              class="dropdown-item ">Intelligent QMS</a> <a class="dropdown-item "
+              href="/edas_vaani_dev/backend/web/index.php/report/agent-login-report">Login History</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/report/qms-report">QMS Report</a>
+          </div>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav my-2 my-lg-0 mr-3">
+        <li class="nav-item">
+          <span data-toggle="tooltip" data-placement="top" title="Client">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#Modal"><i class="far fa-handshake"></i></a>
+          </span>
+        </li>
+        <li class="p-10 d-none">
+          <span id="real-date-section">Wednesday, November 16, 2022</span>
+          <span id="real-time-section">02:45:04 PM</span>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle profile-icon" href="#" role="button" data-toggle="dropdown"
+            aria-expanded="false">
+            <i class="fas fa-user"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/edas_vaani_dev/backend/web/index.php/site/change-password"
+              title="Change Password"><i class="fas fa-key"></i> Change Password</a> <a class="dropdown-item logout-btn"
+              href="/edas_vaani_dev/backend/web/index.php/site/logout" data-method="POST"><i
+                class="fas fa-power-off"></i> Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- <body class="hold-transition sidebar-mini"> -->
+  <div class="wrapper" id="agent_page">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <div class="social-chat-for-all email-panel tran">
+        <div class="sidebar chat-list full-width" id="expandShrinkCol">
+          <!-- <ul class="nav nav-pills nav-justified">
+            <li role="presentation" class="active"><a href="#">All</a></li>
+            <li role="presentation"><a href="#">Unread</a></li>
+            <li role="presentation"><a href="#">Read</a></li>
+          </ul> -->
+          <div id="message_display">
+            <div class="message-chat-box active">
+              <div class="message-body">
+                <div class="email-box">
+                  <div class="mr-auto">
+                    <h4><span id="name">Krunal Wankhede</span> <span id="email">krunal@xyz.com</span></h4>
+                    <p>How can I get a refund for my order?</p>
+                  </div>
+                  <div class="text-right">
+                    <div class="status">
+                      <i class="fas fa-check done"></i>
+                    </div>
+                    <div class="count-time-box">19/10/22 12:43 PM</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="message-chat-box">
+              <div class="message-body">
+                <div class="email-box">
+                  <div class="mr-auto">
+                    <h4><span id="name">Krunal Wankhede</span> <span id="email">krunal@xyz.com</span></h4>
+                    <p>How can I get a refund for my order?</p>
+                  </div>
+                  <div class="text-right">
+                    <div class="status">
+                      <i class="fas fa-exclamation open"></i>
+                      <i class="fas fa-flag open"></i>
+                    </div>
+                    <div class="count-time-box">19/10/22 12:43 PM</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="message-chat-box">
+              <div class="message-body">
+                <div class="email-box">
+                  <div class="mr-auto">
+                    <h4><span id="name">Krunal Wankhede</span> <span id="email">krunal@xyz.com</span></h4>
+                    <p>How can I get a refund for my order?</p>
+                  </div>
+                  <div class="text-right">
+                    <div class="status">
+                      <i class="fas fa-exclamation-triangle in-process"></i>
+                    </div>
+                    <div class="count-time-box">19/10/22 12:43 PM</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- sliding  -->
+          <div class="expand-shrink">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+        <div class="email-container" style="display: none;">
+          <iframe src="email-iframe-2.html" frameborder="0" width="100%" name='emailbox' id="emailBox" style="height: 93vh;"></iframe>
+        </div>
+      </div>
+      <!-- /.content-wrapper -->
+    </div>
+  </div>
+  <!-- REQUIRED SCRIPTS -->
+
+  <!-- jQuery -->
+  <!-- <script src="../plugins/jquery/jquery.min.js"></script> -->
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- OPTIONAL SCRIPTS -->
+
+  <script src="assets/js/email.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>Agent Panel </title>
+  <link rel='icon' type='image/x-icon' href='../assets/img/favicon.png'>
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="assets/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-select/css/select.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Custome style -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/agent-pannel.css">
+  <link rel="stylesheet" href="assets/css/light-mode.css">
+  <style>
+    table.dataTable tbody th,
+    table.dataTable tbody td,
+    .table td,
+    .table th {
+      border-top: 1px solid #fafafa;
+      word-break: break-all;
+    }
+  
+    table.dataTable thead th,
+    table.dataTable thead td,
+    .table>thead>tr>th,
+    table.dataTable.no-footer,
+    .table {
+      border-bottom: 1px solid #fafafa;
+      background: none;
+    }
+  
+    .table>thead>tr>th {
+      color: #FFF;
+    }
+  
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+      background: #E6E6E6;
+      border: none;
+    }
+  
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+      background: #0084FF;
+      border-color: #06559f;
+    }
+  
+    table.dataTable.no-footer thead,
+    .table thead,
+    table.dataTable.no-footer thead tr {
+      background: #1d4487;
+    }
+  
+    table.dataTable>thead>tr>th:not(.sorting_disabled) {
+      color: #FFF;
+    }
+  
+    table.dataTable.no-footer {
+      box-shadow: none;
+      border-radius: 0;
+      border: 0;
+    }
+  
+    .table-bordered th {
+      border: 0;
+      color: #FFF;
+    }
+  
+    .table-bordered td {
+      border: 0;
+      color: #747474;
+    }
+  
+    .table-striped tbody tr:hover td {
+      color: #ffffff;
+    }
+  
+    .table-striped tbody .empty {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body class="sidebar-mini">
+
+  <!-- <body class="hold-transition sidebar-mini"> -->
+  <div class="wrapper" id="agent_page">
+    <!-- jQuery -->
+    <script src="../plugins/jquery/jquery.min.js"></script>
+    <script src="../assets/js/datatable.js"></script>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+      <div class="alert notification-pop" id="msg"></div>
+
+      <div class="dashboard-content">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+          <div class="container-fluid">
+            <div class="clearfix">
+              <div class="float-left">
+                <h1 class="m-0">Quality Feedback</h1>
+              </div>
+            </div><!-- /.row -->
+          </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <div class="content">
+          <div class="container-fluid">
+            <div class="card">
+              <div class="card-body">
+                <div class="mb-3">
+                  <audio controls>
+                    <source src="horse.ogg" type="audio/ogg">
+                    <source src="horse.mp3" type="audio/mpeg">
+                    Your browser does not support the audio tag.
+                  </audio>
+                </div>
+                <hr>
+                <div class="">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Agent Name</label>
+                        <div class=" col-sm-8">
+                          <p>MIK_user1_test</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Campaign</label>
+                        <div class=" col-sm-8">
+                          <p>mik_test_inbound</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Language</label>
+                        <div class=" col-sm-8">
+                          <p>Punjabi</p>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Audit Type</label>
+                        <div class=" col-sm-8">
+                          <p>Recorded Calls</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Location</label>
+                        <div class=" col-sm-8">
+                          <p>Mumbai</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Call Duration</label>
+                        <div class=" col-sm-8">
+                          <p>00:00:07</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Call Date</label>
+                        <div class=" col-sm-8">
+                          <p>2022-10-27 11:07:04</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Week</label>
+                        <div class=" col-sm-8">
+                          <p>Week1</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Month</label>
+                        <div class=" col-sm-8">
+                          <p>December</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Call ID</label>
+                        <div class=" col-sm-8">
+                          <p>call_id</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Analysis Finding</label>
+                        <div class=" col-sm-8">
+                          <p>NA</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Agent Type</label>
+                        <div class=" col-sm-8">
+                          <p>NON OJT</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Unique ID</label>
+                        <div class=" col-sm-8">
+                          <p>1666848994.306</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Disposition</label>
+                        <div class=" col-sm-8">
+                          <p>Disconnected</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Sub Disposition</label>
+                        <div class=" col-sm-8">
+                          <p>In Discussion</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">PIP Status</label>
+                        <div class=" col-sm-8">
+                          <p>NA</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Categorization</label>
+                        <div class=" col-sm-8">
+                          <p>NA</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Action Status</label>
+                        <div class=" col-sm-8">
+                          <p>NA</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-2">Gist of Case</label>
+                        <div class=" col-sm-10">
+                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages, and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-2">Analysis Finding</label>
+                        <div class=" col-sm-10">
+                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages, and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-2">Areas Of Improvement</label>
+                        <div class=" col-sm-10">
+                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages, and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-2">Reason For Error Call</label>
+                        <div class=" col-sm-10">
+                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages, and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <table class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Sub Parameter</th>
+                        <th>Marking</th>
+                        <th>Remark</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Opening Statements</td>
+                        <td>Welcome</td>
+                        <td>
+                          <p>Fatal</p>
+                        </td>
+                        <td>
+                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Quality Score</label>
+                        <div class=" col-sm-8">
+                          <p>quality_score</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Out Of</label>
+                        <div class=" col-sm-8">
+                          <p>100</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Final Score</label>
+                        <div class=" col-sm-8">
+                          <p>final_score</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="row form-group">
+                        <label class="form-label col-sm-4">Percentage (%)</label>
+                        <div class=" col-sm-8">
+                          <p>total_percent</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr>
+
+                  <div>
+                    <div class="row form-group">
+                      <label class="form-label col-sm-2">Feedback</label>
+                      <div class=" col-sm-10">
+                        <textarea rows="2" name="feedback" class="form-control" placeholder="Feedback" value="" required=""></textarea>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <button type="button" class="btn btn-outline-secondary">Reject</button>
+                      <button type="submit" class="btn btn-outline-primary">Accept</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card -->
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+      </div>
+
+      <!-- download file -->
+      <!-- <iframe id="frame_history" style="display:none;"></iframe> -->
+      <!-- customer Information  (Dialer)-->
+      <input type="text" id="webrtcstatus" name="webrtcstatus" value="2" hidden="">
+      <input type="text" id="firsttimereg" name="firsttimereg" value="0" hidden="">
+      <!-- SideBar  -->
+
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <strong>Copyright © 2021 <a href="https://www.edas.tech/" target="_blank">eDAS</a>.</strong>
+      All rights reserved.
+    </footer>
+
+    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

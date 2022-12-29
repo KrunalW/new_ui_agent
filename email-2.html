@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>Agent Panel </title>
+  <link rel='icon' type='image/x-icon' href='../assets/img/favicon.png'>
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="assets/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-select/css/select.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Custome style -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/light-mode.css">
+  <link rel="stylesheet" href="assets/css/social-chat_&_email.css">
+  <style>
+    table.dataTable tbody th,
+    table.dataTable tbody td,
+    .table td,
+    .table th {
+      border-top: 1px solid #fafafa;
+      word-break: break-all;
+    }
+
+    table.dataTable thead th,
+    table.dataTable thead td,
+    .table>thead>tr>th,
+    table.dataTable.no-footer,
+    .table {
+      border-bottom: 1px solid #fafafa;
+      background: none;
+    }
+
+    .table>thead>tr>th {
+      color: #FFF;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+      background: #E6E6E6;
+      border: none;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+      background: #0084FF;
+      border-color: #06559f;
+    }
+
+    table.dataTable.no-footer thead,
+    .table thead,
+    table.dataTable.no-footer thead tr {
+      background: #1d4487;
+    }
+
+    table.dataTable>thead>tr>th:not(.sorting_disabled) {
+      color: #FFF;
+    }
+
+    table.dataTable.no-footer {
+      box-shadow: none;
+      border-radius: 0;
+      border: 0;
+    }
+
+    .table-bordered th {
+      border: 0;
+      color: #FFF;
+    }
+
+    .table-bordered td {
+      border: 0;
+      color: #747474;
+    }
+
+    .table-striped tbody tr:hover td {
+      color: #ffffff;
+    }
+
+    .table-striped tbody .empty {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body class="sidebar-mini">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <!-- Brand Logo -->
+        <a href="#" class="brand-link">
+          <img src="./assets/img/vaani-logo.png" alt="Vaani Logo" class="brand-image">
+          <img src="./assets/img/vaani-logo.png" alt="Vaani Logo" class="brand-logo elevation-3" style="opacity: .8">
+          <span class="brand-text font-weight-light">&nbsp;</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <div class="user-panel d-flex">
+          <!-- <div class="image">
+            <img src="/edas_vaani_dev/backend/web/images/vaani-initial-logo.png" class="elevation-2" alt="User Image">
+          </div> -->
+          <div class="info">
+            <div>Welcome</div> <span>Super Admin</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-- Right navbar links -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav menu-list m-auto">
+        <li class="nav-item d-none">
+          <!-- <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a> -->
+          <a class="nav-link barIcon" href="#" role="button">
+            <!-- <i class="fas fa-bars"></i> -->
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </a>
+        </li>
+
+        <!-- MENU LIST -->
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Configuration </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/lead/index">Batches</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/break/index">Breaks</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/client/index">Client License</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/crm/index">CRM</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/disposition/index">Disposition</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/dni/index">DNI List</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/menu/index">Menu Master</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/operator/index">Operators</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/pbx/configuration">PBX</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/qms/index">QMS</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/call-times/index">Schedules</a> <a
+              class="dropdown-item ">Telephony</a> <a class="dropdown-item "
+              href="/edas_vaani_dev/backend/web/index.php/kp/index">Knowledge Portal</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Integration </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item ">Email</a> <a class="dropdown-item ">Facebook</a> <a
+              class="dropdown-item ">WhatsApp</a> <a class="dropdown-item ">Instagram</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Administer </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item ">Admin Termination</a> <a class="dropdown-item ">Agent Termination</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/campaign/index">Campaign List</a> <a
+              class="dropdown-item ">Pending Feedback</a> <a class="dropdown-item "
+              href="/edas_vaani_dev/backend/web/index.php/report/recordings">Evaluation</a> <a class="dropdown-item "
+              href="/edas_vaani_dev/backend/web/index.php/user/index">Users</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Monitoring </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item ">Call Barge</a> <a class="dropdown-item ">Lead Performance</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/report/monitoring">Live Monitoring</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Reports </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/report/acd-report">ACD Report</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/report/agent-performance-report">APR
+              Report</a> <a class="dropdown-item "
+              href="/edas_vaani_dev/backend/web/index.php/report/call-register-report">Call Register</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/report/crm-history-report">CRM
+              History</a> <a class="dropdown-item ">Email History</a> <a class="dropdown-item ">Intelligent APR</a> <a
+              class="dropdown-item ">Intelligent QMS</a> <a class="dropdown-item "
+              href="/edas_vaani_dev/backend/web/index.php/report/agent-login-report">Login History</a> <a
+              class="dropdown-item " href="/edas_vaani_dev/backend/web/index.php/report/qms-report">QMS Report</a>
+          </div>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav my-2 my-lg-0 mr-3">
+        <li class="nav-item">
+          <span data-toggle="tooltip" data-placement="top" title="Client">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#Modal"><i class="far fa-handshake"></i></a>
+          </span>
+        </li>
+        <li class="p-10 d-none">
+          <span id="real-date-section">Wednesday, November 16, 2022</span>
+          <span id="real-time-section">02:45:04 PM</span>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle profile-icon" href="#" role="button" data-toggle="dropdown"
+            aria-expanded="false">
+            <i class="fas fa-user"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/edas_vaani_dev/backend/web/index.php/site/change-password"
+              title="Change Password"><i class="fas fa-key"></i> Change Password</a> <a class="dropdown-item logout-btn"
+              href="/edas_vaani_dev/backend/web/index.php/site/logout" data-method="POST"><i
+                class="fas fa-power-off"></i> Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- <body class="hold-transition sidebar-mini"> -->
+  <div class="wrapper" id="agent_page">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <div class="top-heading">
+        <div class="row">
+          <div class="left-box">
+            <h1 class="inboxmsg">All Mail </h1>
+
+            <a href="admin.php?ADD=999887" class="btn-sm btn-default" style="display:none">New</a>
+
+            <!-- <a href="#" id="refreshInbox" class="pl-15 text-success">
+              <i class="fas fa-sync-alt"></i>
+            </a> -->
+          </div>
+          <div class="right-box push" style="display: none;">
+            <span class="sort-by">
+              <span class="sortBy-text">Sort By</span>
+              <div class="dropdown right-dropdown">
+                <span class="dropbtn dropdown-btn">Date <i class="fas fa-angle-down"></i></span>
+                <div class="dropdown-content">
+                  <a href="#">Date</a>
+                  <a href="#">From</a>
+                  <a href="#">Subject</a>
+                  <a href="#">Status</a>
+                </div>
+              </div>
+            </span>
+          </div>
+          <div class="push">
+            <!-- <a href="#" id="movetospambtn" class="btn-sm btn-default disabled" onclick="movetospammodal()"><i
+                class="fas fa-arrows-alt"></i> Move to spam</a>
+            <a href="#" id="deletemail" class="btn-sm btn-bordered disabled" onclick="opendeletemodal()"><i
+                class="far fa-trash-alt"></i> Delete</a> -->
+            <a href="#" class="btn-sm btn-default right-box" id="filterBtn"> <i class="fas fa-filter"></i> filter</a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="filter-container">
+        <div class="filter-head row">
+          <div>Filters</div>
+          <div class="push">
+            <a href="#" class="close" id="closeFilters"><i class="fas fa-times"></i></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col-3">
+                <label for="">Campaigns</label>
+              </div>
+              <div class="col-9">
+                <select class="form-control" id="filter_campaign">
+                  <option value="0" selected="">ALL</option>
+                  <option value="newtest"> newtest</option>
+                  <option value="Test_eml"> Test_eml</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="row">
+              <div class="col-3">
+                <label for="">Start Date</label>
+              </div>
+              <div class="col-9"><input class="form-control" type="date" id="filter_sdate" name="user" size="20"
+                  maxlength="20"></div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="row">
+              <div class="col-3">
+                <label for="">End Date</label>
+              </div>
+              <div class="col-9"><input class="form-control" type="date" id="filter_edate" name="user" size="20"
+                  maxlength="20"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <div id="emailContainer">
+          <div id="email-box">
+            <table id="emailManage" class="table table-striped" cellspacing="0" role="grid"
+              aria-describedby="emailManage_info">
+              <thead id="fullHeadEmailList">
+                <tr role="row">
+                  <th width="10" class="pl-20 sorting_disabled" rowspan="1" colspan="1"></th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1">Campaign</th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1">From</th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1">Subject</th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1">Date</th>
+                </tr>
+              </thead>
+              <tbody id="fullTableBody">
+                <tr class="odd">
+                  <td><input class="checkrow" type="checkbox" name="chk[]" id="checkbox17"
+                      onclick="getCheck(17); event.stopPropagation();"></td>
+                  <td>test_eml</td>
+                  <td>Shrikant Thombare</td>
+                  <td>test</td>
+                  <td>Nov-09</td>
+                </tr>
+                <tr class="even">
+                  <td><input class="checkrow" type="checkbox" name="chk[]" id="checkbox16"
+                      onclick="getCheck(16); event.stopPropagation();"></td>
+                  <td>test_eml</td>
+                  <td>Shrikant Thombare</td>
+                  <td>Support Mail</td>
+                  <td>Nov-09</td>
+                </tr>
+                <tr class="odd">
+                  <td><input class="checkrow" type="checkbox" name="chk[]" id="checkbox15"
+                      onclick="getCheck(15); event.stopPropagation();"></td>
+                  <td>test_eml</td>
+                  <td>Jestin Joshi</td>
+                  <td>Test</td>
+                  <td>Nov-09</td>
+                </tr>
+                <tr class="even">
+                  <td><input class="checkrow" type="checkbox" name="chk[]" id="checkbox14"
+                      onclick="getCheck(14); event.stopPropagation();"></td>
+                  <td>test_eml</td>
+                  <td>Jestin Joshi</td>
+                  <td>Test</td>
+                  <td>Nov-09</td>
+                </tr>
+                <tr class="odd">
+                  <td><input class="checkrow" type="checkbox" name="chk[]" id="checkbox13"
+                      onclick="getCheck(13); event.stopPropagation();"></td>
+                  <td>test_eml</td>
+                  <td>Jestin Joshi</td>
+                  <td>Test</td>
+                  <td>Nov-09</td>
+                </tr>
+                <tr class="even">
+                  <td><input class="checkrow" type="checkbox" name="chk[]" id="checkbox12"
+                      onclick="getCheck(12); event.stopPropagation();"></td>
+                  <td>test_eml</td>
+                  <td>Jestin Joshi</td>
+                  <td>Test</td>
+                  <td>Nov-09</td>
+                </tr>
+                <tr onclick="showrowdata('11')" data-id="11" class="odd">
+                  <td><input class="checkrow" type="checkbox" name="chk[]" id="checkbox11"
+                      onclick="getCheck(11); event.stopPropagation();"></td>
+                  <td>test_eml</td>
+                  <td>Jestin Joshi</td>
+                  <td>Test</td>
+                  <td>Nov-09</td>
+                </tr>
+                <tr class="even">
+                  <td><input class="checkrow" type="checkbox" name="chk[]" id="checkbox10"
+                      onclick="getCheck(10); event.stopPropagation();"></td>
+                  <td>test_eml</td>
+                  <td>Jestin Joshi</td>
+                  <td>Test</td>
+                  <td>Nov-09</td>
+                </tr>
+                <tr class="odd">
+                  <td><input class="checkrow" type="checkbox" name="chk[]" id="checkbox9"
+                      onclick="getCheck(9); event.stopPropagation();"></td>
+                  <td>test_eml</td>
+                  <td>Shrikant Thombare</td>
+                  <td>test</td>
+                  <td>Sep-30</td>
+                </tr>
+                <tr class="even">
+                  <td><input class="checkrow" type="checkbox" name="chk[]" id="checkbox8"
+                      onclick="getCheck(8); event.stopPropagation();"></td>
+                  <td>test_eml</td>
+                  <td>Shrikant Thombare</td>
+                  <td>test</td>
+                  <td>Sep-30</td>
+                </tr>
+              </tbody>
+            </table>
+            <table id="emailManage1" class="table table-striped" cellspacing="0" style="display:none">
+              <thead id="fullHeadEmailList" style="display: none;">
+                <tr>
+                  <th> Mail Info</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="listmail17" onclick="showrowdata1('17')" data-id="17" class="odd active">
+                  <td class="">
+                    <div class="list-primary">
+                      <div>test </div>
+                    </div>
+                    <div class="list-secondary">
+                      <div class="disp-f">
+                        <div class="col-5"><span id="name"> Shrikant Thombare </span></div>
+                        <div class="col-7 text-right"><span id="time"> Nov-09 <span class="black-dot"></span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr id="listmail16" onclick="showrowdata1('16')" data-id="16" class="even">
+                  <td class="">
+                    <div class="list-primary">
+                      <div>Support Mail </div>
+                    </div>
+                    <div class="list-secondary">
+                      <div class="disp-f">
+                        <div class="col-5"><span id="name"> Shrikant Thombare </span></div>
+                        <div class="col-7 text-right"><span id="time"> Nov-09 <span class="black-dot"></span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr id="listmail15" onclick="showrowdata1('15')" data-id="15" class="odd">
+                  <td class="">
+                    <div class="list-primary">
+                      <div>Test </div>
+                    </div>
+                    <div class="list-secondary">
+                      <div class="disp-f">
+                        <div class="col-5"><span id="name"> Jestin Joshi </span></div>
+                        <div class="col-7 text-right"><span id="time"> Nov-09 <span class="black-dot"></span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr id="listmail14" onclick="showrowdata1('14')" data-id="14" class="even">
+                  <td class="">
+                    <div class="list-primary">
+                      <div>Test </div>
+                    </div>
+                    <div class="list-secondary">
+                      <div class="disp-f">
+                        <div class="col-5"><span id="name"> Jestin Joshi </span></div>
+                        <div class="col-7 text-right"><span id="time"> Nov-09 <span class="black-dot"></span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr id="listmail13" onclick="showrowdata1('13')" data-id="13" class="odd">
+                  <td class="">
+                    <div class="list-primary">
+                      <div>Test </div>
+                    </div>
+                    <div class="list-secondary">
+                      <div class="disp-f">
+                        <div class="col-5"><span id="name"> Jestin Joshi </span></div>
+                        <div class="col-7 text-right"><span id="time"> Nov-09 <span class="black-dot"></span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr id="listmail12" onclick="showrowdata1('12')" data-id="12" class="even">
+                  <td class="">
+                    <div class="list-primary">
+                      <div>Test </div>
+                    </div>
+                    <div class="list-secondary">
+                      <div class="disp-f">
+                        <div class="col-5"><span id="name"> Jestin Joshi </span></div>
+                        <div class="col-7 text-right"><span id="time"> Nov-09 <span class="black-dot"></span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr id="listmail11" onclick="showrowdata1('11')" data-id="11" class="odd">
+                  <td class="">
+                    <div class="list-primary">
+                      <div>Test </div>
+                    </div>
+                    <div class="list-secondary">
+                      <div class="disp-f">
+                        <div class="col-5"><span id="name"> Jestin Joshi </span></div>
+                        <div class="col-7 text-right"><span id="time"> Nov-09 <span class="black-dot"></span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr id="listmail10" onclick="showrowdata1('10')" data-id="10" class="even">
+                  <td class="">
+                    <div class="list-primary">
+                      <div>Test </div>
+                    </div>
+                    <div class="list-secondary">
+                      <div class="disp-f">
+                        <div class="col-5"><span id="name"> Jestin Joshi </span></div>
+                        <div class="col-7 text-right"><span id="time"> Nov-09 <span class="black-dot"></span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr id="listmail9" onclick="showrowdata1('9')" data-id="9" class="odd">
+                  <td class="">
+                    <div class="list-primary">
+                      <div>test </div>
+                    </div>
+                    <div class="list-secondary">
+                      <div class="disp-f">
+                        <div class="col-5"><span id="name"> Shrikant Thombare </span></div>
+                        <div class="col-7 text-right"><span id="time"> Sep-30 <span class="black-dot"></span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr id="listmail8" onclick="showrowdata1('8')" data-id="8" class="even">
+                  <td class="">
+                    <div class="list-primary">
+                      <div>test </div>
+                    </div>
+                    <div class="list-secondary">
+                      <div class="disp-f">
+                        <div class="col-5"><span id="name"> Shrikant Thombare </span></div>
+                        <div class="col-7 text-right"><span id="time"> Sep-30 <span class="black-dot"></span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- /.content-wrapper -->
+          </div>
+          <div id="emailBody" class="col-9" style="display:none;">
+            <div class="email-content">
+              <!-- Email Head -->
+              <div class="email-head">
+                <div class="disp-f">
+                  <div>
+                    <!-- <h3>How can I get a refund for my order??</h3> -->
+                    <h3 class="subject_email">How can I get a refund for my order??</h3>
+                    <h5>From : <span class="from_email"> Krunal Wankhede </span></h5>
+                  </div>
+                  <div class="push mt-10">
+                    <a href="#emailBtn" class="btn btn-bordered" id="replyBtn"><i class="fas fa-reply"></i> Reply</a>
+                    <a href="#" class="btn btn-bordered attached_file" onclick="openmodel()"><i
+                        class="fas fa-paperclip"></i> Attachment</a>
+                    <!-- <a href="#emailBtn" class="btn btn-bordered " id="forwordBtn">Forward</a> -->
+                    <a href="#" class="btn btn-bordered btn-blue" id="backBtn"><i class="fas fa-chevron-left"></i>
+                      Back</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email Body  -->
+              <div class="email-body">
+                <div class="email-main">
+                  <div class="disp-f">
+                    <div class="col-8">
+                      <p id="mail_body" class="pos-relative"> </p>
+
+                      <div class="email-footer">
+                        <!-- <a href="#" class="attachment">
+                                        <i class="fas fa-paperclip"></i>
+                                        84848484f884484fdf.pdf
+                                    </a> -->
+                      </div>
+                    </div>
+                    <div class="col-4 email-details">
+                      <h3>Details:</h3>
+                      <div class="disp-f mb-20">
+                        <div class="col-3"><b>Subject</b> </div>
+                        <div class="col-9"><span class="subject_email">How can I get a refund for my order?</span></div>
+                      </div>
+                      <div class="disp-f mb-20">
+                        <div class="col-3"><b>Email</b> </div>
+                        <div class="col-9"><span class="from_email">Krunal.wankhede@edas.tech</span></div>
+                      </div>
+                      <div class="disp-f mb-20">
+                        <div class="col-3"><b>Date</b> </div>
+                        <div class="col-9"><span class="date_email">Tue, 17 Aug 2021 at 7:56 AM</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="previous-conversation">
+                  <div class="accrodion">
+                    <div class="accrodion-btn accrodion-tbtn clearfix">
+                      <span class="float-left">On 17/07/2021 1:00 PM, care@edas.tech wrote:</span>
+                    </div>
+                    <div class="acc-content">
+                      <p>Hi,</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo rem amet
+                        suscipit cum deserunt laborum animi cupiditate quas ipsum expedita, at
+                        molestiae! Quam minima sint aspernatur earum iste ducimus est!</p>
+                      <br>
+                      <h5>Regards,</h5>
+                      <h5>Edas Care</h5>
+                    </div>
+                  </div>
+                  <!-- <div class="accrodion">
+                            <div class="accrodion-btn clearfix">
+                                <span class="float-left">On 15/07/2021 5:41 PM, shrikant.thombare@edas.tech
+                                    wrote:</span>
+                            </div>
+                            <div class="acc-content">
+                                <p>Hi,</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo rem amet
+                                    suscipit cum deserunt laborum animi cupiditate quas ipsum expedita, at
+                                    molestiae! Quam minima sint aspernatur earum iste ducimus est!</p>
+                                <br>
+                                <h5>Regards,</h5>
+                                <h5>Shrikant</h5>
+                            </div>
+                        </div> -->
+                </div>
+
+                <div class="send-email-container" id="sendMail" style="display: none;">
+                  <div class="email-from-to" id="emailBtn">
+                    <div class="disp-f mb-10 from-mail">
+                      <div class="col-2">From</div>
+                      <div class="col-10">
+                        <div class="disp-f">
+                          <span id="reply_from">care@edas.tech</span>
+                          <div class="push">
+                            <a href="#" id="attachFileBtn"><i class="fas fa-paperclip"></i></a>
+                            <a id="ccEmailBtn" class="pl-15" href="#">Cc</a>
+                            <!-- |
+                                            <a class="" href="#">Bcc</a> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="disp-f mb-10">
+                      <div class="col-2">To
+                        <a href="#" onclick="toaddressmodal();"><i class="fas fa-address-book"></i></a>
+                        <!-- <ul class="list-unstyled addtoaddress">
+                                        <li class="init"><i class="fas fa-address-book"></i></li>
+                                        <?php
+                                        // $str = '';
+                                        // foreach ($address_book as $addbook) {
+                                        //     $str .= '<li data-value="' . $addbook["email"] . '">' . $addbook["email"] . '</li>';
+                                        // }
+                                        // echo $str;
+                                        ?>
+    
+                                    </ul> -->
+
+                      </div>
+                      <div class="col-10">
+                        <div class="email-picker email-topicker">
+                          <!-- <span>
+                                            <div class="selecionado" id="reply_to">
+                                                <div class="excluir" onclick="excluir(0)"><i class="fa fa-times"></i></div>
+                                            </div>
+                                        </span> -->
+                          <span class="selecionados">
+                          </span>
+                          <input class="input-selecionar form-control" type="text" style="width: 100%;">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="disp-f mb-10">
+                                <div class="col-2">To</div>
+                                <div class="col-10">
+                                    <div class="email-picker">
+                                        <span>
+                                            <div class="selecionado">
+                                                shrikant.thombare@edas.techh
+                                            </div>
+                                        </span>
+                                        <span class="selecionados">
+    
+                                        </span>
+                                        <input class="input-selecionar" type="text" style="width: 100%;">
+                                    </div>
+                                </div>
+                            </div> -->
+
+                    <!-- <div id="ccEmailContent" class="disp-f mb-10" style="display: none;">
+                                <div class="col-2">Cc</div>
+                                <div class="col-10">
+                                    <div class="email-picker">
+                                        <span class="selecionados">
+    
+                                        </span>
+                                        <input class="input-selecionar" type="text" style="width: 100%;">
+                                    </div>
+                                </div>
+                            </div> -->
+                    <div id="ccEmailContent" class="disp-f mb-10" style="display: none;">
+                      <div class="col-2">Cc
+                        <a href="#" onclick="ccaddressmodal();"><i class="fas fa-address-book"></i></a>
+                        <!-- <ul class="list-unstyled addccaddress">
+                                        <li class="init"><i class="fas fa-address-book"></i></li>
+                                        <?php
+                                        // $str = '';
+                                        // foreach ($address_book as $addbook) {
+                                        //     $str .= '<li data-value="' . $addbook["email"] . '">' . $addbook["email"] . '</li>';
+                                        // }
+                                        // echo $str;
+                                        ?>
+                                    </ul> -->
+                      </div>
+                      <div class="col-10 pos-relative">
+                        <div id="closecc" class="close-cc"> <i class="fas fa-times"></i> </div>
+                        <div class="email-picker email-ccpicker">
+                          <span class="selecionados1">
+                          </span>
+                          <input class="input-selecionar1 form-control" id="reply_cc" type="text" style="width: 100%;">
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Attachment  -->
+                    <div id="attachEmailContent" class="disp-f mb-10" style="display: none;">
+                      <div class="col-2">Attachment</div>
+                      <div class="col-10 pos-relative">
+                        <div id="closeattached" class="close-cc"> <i class="fas fa-times"></i> </div>
+                        <div>
+                          <input class="input-selecionar1 form-control" name="files[]" id="files" type="file"
+                            width="100%" multiple>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="disp-f mb-10" style="display: none;">
+                                <div class="col-2">Bcc</div>
+                                <div class="col-10">
+                                    <div class="email-picker">
+                                        <span class="selecionados">
+    
+                                        </span>
+                                        <input class="input-selecionar" type="text" style="width: 100%;">
+                                    </div>
+                                </div>
+                            </div> -->
+                    <div class="disp-f mb-10">
+                      <div class="col-2 ">Subject</div>
+                      <div class="col-10">
+                        <input class="subject_email form-control" id="reply_subject" type="text" style="width: 100%;"
+                          value="Lorem ipsum dolor sit amet consectetur adipisicing elit.">
+                      </div>
+                    </div>
+                    <div class="disp-f">
+                      <div class="col-2 ">Template</div>
+                      <div class="col-10">
+                        <button id="addTemplate" class="btn-bordered"><i class="far fa-file-alt"></i> Add Canned
+                          Response</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="editorjs1" style="display:none;">
+                    <!-- <br><br>
+                            <p>On 19/07/2021 11:06 AM, shrikant.thombare@edas.tech wrote:</p>
+                            <p>Hello Sir,</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae eos ducimus
+                                necessitatibus
+                                labore, deleniti rerum quam illum rem odio facere doloremque quod non ipsa.
+                                Officia
+                                necessitatibus voluptates earum dolorum vero.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae eos ducimus
+                                necessitatibus
+                                labore, deleniti rerum quam illum rem odio facere doloremque quod non ipsa.
+                                Officia
+                                necessitatibus voluptates earum dolorum vero.</p> -->
+                    <!-- <div class="signature">
+                                <h5>Regards,</h5>
+                                <h5>Shrikant</h5>
+                            </div>
+                            <div class="email-footer">
+                                <a href="#" class="attachment">
+                                    <i class="fas fa-paperclip"></i> 84848484f884484fdf.pdf
+                                </a>
+                            </div> -->
+
+                    <div class="previous-conversation">
+                      <!-- <div class="accrodion">
+                                    <div class="accrodion-btn clearfix">
+                                        <p>On 17/07/20211 1:00 PM, care@edas.tech wrote:</p>
+                                        <p>Hi,</p>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo rem amet
+                                            suscipit cum deserunt laborum animi cupiditate quas ipsum expedita, at
+                                            molestiae! Quam minima sint aspernatur earum iste ducimus est!</p>
+                                        <h5>Regards,</h5>
+                                        <h5>Edas Care</h5>
+                                    </div>
+                                </div> -->
+                      <div class="accrodion">
+                        <!-- <div class="accrodion-btn clearfix">
+                                        <p>On 15/07/2021 5:41 PM, shrikant.thombare@edas.tech wrote:</p>
+                                        <p>Hi,</p>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo rem amet
+                                            suscipit cum deserunt laborum animi cupiditate quas ipsum expedita, at
+                                            molestiae! Quam minima sint aspernatur earum iste ducimus est!</p>
+                                        <br>
+                                        <h5>Regards,</h5>
+                                        <h5>Shrikant</h5>
+                                    </div> -->
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!-- <div style="display: none;" id="editorjs"></div> -->
+
+                  <textarea id="editor" style="display: none;" name="editor" rows="10">
+                        </textarea>
+
+                  <div class="top disp-f mb-15 mt-15">
+                    <div class="col-2">
+                      <label for="validationDefault01" class="lblti"> Dispositions : </label>
+                    </div>
+                    <div class="col-10">
+                      <select id="disposition" class="form-control" onchange="getdisposition()" name="disposition"
+                        required style="width:100%;">
+                        <option value="1"> Connect </option>
+                        <option value="2"> Non Connect </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="disp-f mb-15">
+                    <div class="col-2">
+                      <label for="validationDefault01" class="lblti"> Sub Dispositions : </label>
+                    </div>
+                    <div class="col-10">
+                      <select id="subdisposition" class="form-control" name="sub_disposition" required
+                        style="width:100%;">
+
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="top disp-f mb-15">
+                    <div class="col-2">
+                      <label for="validationDefault01" class="lblti"> Remark : </label>
+                    </div>
+                    <div class="col-10">
+                      <textarea rows="5" cols="50" id="remark_data" class="form-control"
+                        style="width:100%;"> </textarea>
+                    </div>
+                  </div>
+                  <div class="m-15 text-right">
+                    <div class="btn-box">
+                      <button id="cancelBtn" class="btn btn-outline-default">Cancel</button>
+
+                      <button class="btn btn-outline-primary" id="reply_send_mail">Send</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="assets/js/emailmanagment.js"></script>
+    <script src="assets/ckeditor/ckeditor.js"></script>
+    <!-- OPTIONAL SCRIPTS -->
+
+    <script>
+      // CK Editor 
+      /* exported initSample */
+
+      if (CKEDITOR.env.ie && CKEDITOR.env.version < 9)
+        CKEDITOR.tools.enableHtml5Elements(document);
+
+      // The trick to keep the editor in the sample quite small
+      // unless user specified own height.
+      CKEDITOR.editorConfig = function (config) {
+        config.extraPlugins = 'language';
+        config.width = 'auto';
+        config.height = 300;
+        config.toolbarCanCollapse = true;
+      };
+
+      var initSample = (function () {
+        var wysiwygareaAvailable = isWysiwygareaAvailable(),
+          isBBCodeBuiltIn = !!CKEDITOR.plugins.get('bbcode');
+
+        return function () {
+          var editorElement = CKEDITOR.document.getById('editor');
+
+
+          // Depending on the wysiwygarea plugin availability initialize classic or inline editor.
+          if (wysiwygareaAvailable) {
+            CKEDITOR.replace('editor');
+          } else {
+            editorElement.setAttribute('contenteditable', 'true');
+            CKEDITOR.inline('editor');
+
+            // TODO we can consider displaying some info box that
+            // without wysiwygarea the classic editor may not work.
+          }
+        };
+
+        function isWysiwygareaAvailable() {
+          // If in development mode, then the wysiwygarea must be available.
+          // Split REV into two strings so builder does not replace it :D.
+          if (CKEDITOR.revision == ('%RE' + 'V%')) {
+            return true;
+          }
+
+          return !!CKEDITOR.plugins.get('wysiwygarea');
+        }
+      })();
+    </script>
+    <script>
+      initSample();
+    </script>
+
+    <script>
+      $('.expand-shrink').click(function () {
+        // alert(123);
+        $('#expandShrinkCol').toggleClass('width-shrink');
+      });
+    </script>
+</body>
+
+</html>
